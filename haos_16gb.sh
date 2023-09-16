@@ -131,7 +131,7 @@ function default_settings() {
   HN="haos$stable"
   CPU_TYPE=""
   CORE_COUNT="2"
-  RAM_SIZE="4096"
+  RAM_SIZE="2048"
   BRG="vmbr0"
   MAC="$GEN_MAC"
   VLAN=""
@@ -416,7 +416,7 @@ pvesm alloc $STORAGE $VMID $DISK0 4M 1>&/dev/null
 qm importdisk $VMID ${FILE%.*} $STORAGE ${DISK_IMPORT:-} 1>&/dev/null
 qm set $VMID \
   -efidisk0 ${DISK0_REF}${FORMAT} \
-  -scsi0 ${DISK1_REF},${DISK_CACHE}${THIN}size=16G \
+  -scsi0 ${DISK1_REF},${DISK_CACHE}${THIN}size=32G \
   -boot order=scsi0 \
   -description "# HAOS
 ### https://github.com/tteck/Proxmox
